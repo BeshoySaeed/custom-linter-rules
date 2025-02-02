@@ -41,6 +41,7 @@ module.exports = tseslint.config(
     plugins: {
       "custom-eslint-rules": require("./eslint"),
     },
+    
     rules: {
       "custom-eslint-rules/my-custom-rule": "error",
       "custom-eslint-rules/no-testing": "error",
