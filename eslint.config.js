@@ -5,14 +5,16 @@ const angular = require("angular-eslint");
 
 module.exports = tseslint.config(
   {
-    files: ["**/*.ts"],
+    files: ["**/*.ts", "**/*.spec.ts"],
     extends: [
       eslint.configs.recommended,
       ...tseslint.configs.recommended,
       ...tseslint.configs.stylistic,
       ...angular.configs.tsRecommended,
     ],
-    processor: angular.processInlineTemplates,
+    plugins: {
+      "custom-eslint-rules": require("./eslint"),
+    },
     rules: {
       "@angular-eslint/directive-selector": [
         "error",
@@ -30,6 +32,7 @@ module.exports = tseslint.config(
           style: "kebab-case",
         },
       ],
+      "custom-eslint-rules/no-testing": "error",
     },
   },
   {
@@ -38,13 +41,7 @@ module.exports = tseslint.config(
       ...angular.configs.templateRecommended,
       ...angular.configs.templateAccessibility,
     ],
-    plugins: {
-      "custom-eslint-rules": require("./eslint"),
-    },
-    
-    rules: {
-      "custom-eslint-rules/my-custom-rule": "error",
-      "custom-eslint-rules/no-testing": "error",
-    },
+
+    rules: {},
   }
 );
