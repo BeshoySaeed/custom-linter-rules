@@ -33,6 +33,7 @@ module.exports = tseslint.config(
         },
       ],
       "custom-eslint-rules/no-testing": "error",
+      "custom-eslint-rules/unsubscribed-observable": "error"
     },
   },
   {

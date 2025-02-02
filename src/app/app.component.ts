@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, DestroyRef } from "@angular/core";
+import { HttpCallsService } from "./httpcalls";
 
 @Component({
   selector: "app-root",
@@ -8,6 +9,7 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   title = "custom-eslint-rules";
+  constructor(private service: HttpCallsService, private destroy: DestroyRef) {}
 
   getName(name: string) {
     return name;
